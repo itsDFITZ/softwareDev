@@ -12,6 +12,6 @@
 using namespace std;
 
 
-void clip() {
+void SoftClip::clip() {
     
 }

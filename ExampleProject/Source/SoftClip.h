@@ -9,6 +9,10 @@
 #ifndef SoftClip_h
 #define SoftClip_h
 
-void clip();
+class SoftClip{
+public:
+    void clip();
+};
+
 
 #endif /* SoftClip_h */

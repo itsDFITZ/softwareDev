@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void norm() {
+void Normalize::norm() {
     
 }
 

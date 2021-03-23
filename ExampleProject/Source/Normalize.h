@@ -9,6 +9,10 @@
 #ifndef Normalize_h
 #define Normalize_h
 
-void norm();
+class Normalize{
+public:
+    void norm();
+};
+
 
 #endif /* Normalize_h */
