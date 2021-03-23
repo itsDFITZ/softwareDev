@@ -14,13 +14,13 @@
 //==============================================================================
 /**
 */
-class ExampleProjectAudioProcessorEditor  : public juce::AudioProcessorEditor,
+class FasterMasterAudioProcessorEditor  : public juce::AudioProcessorEditor,
                                             public juce::Slider::Listener,
                                             public juce::Button::Listener
 {
 public:
-    ExampleProjectAudioProcessorEditor (ExampleProjectAudioProcessor&);
-    ~ExampleProjectAudioProcessorEditor() override;
+    FasterMasterAudioProcessorEditor (FasterMasterAudioProcessor&);
+    ~FasterMasterAudioProcessorEditor() override;
 
     //==============================================================================
     void paint (juce::Graphics&) override;
@@ -31,11 +31,11 @@ public:
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
-    ExampleProjectAudioProcessor& audioProcessor;
+    FasterMasterAudioProcessor& audioProcessor;
     
-    juce::Slider gainSlider;
+    juce::Slider mixSlider;
     
     juce::ToggleButton muteButton;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ExampleProjectAudioProcessorEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FasterMasterAudioProcessorEditor)
 };

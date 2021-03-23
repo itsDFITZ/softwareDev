@@ -13,12 +13,12 @@
 //==============================================================================
 /**
 */
-class ExampleProjectAudioProcessor  : public juce::AudioProcessor
+class FasterMasterAudioProcessor  : public juce::AudioProcessor
 {
 public:
     //==============================================================================
-    ExampleProjectAudioProcessor();
-    ~ExampleProjectAudioProcessor() override;
+    FasterMasterAudioProcessor();
+    ~FasterMasterAudioProcessor() override;
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -58,5 +58,5 @@ public:
     
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ExampleProjectAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FasterMasterAudioProcessor)
 };

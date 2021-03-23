@@ -9,9 +9,10 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "RMSComp.h"
 
 //==============================================================================
-ExampleProjectAudioProcessor::ExampleProjectAudioProcessor()
+FasterMasterAudioProcessor::FasterMasterAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
      : AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
@@ -25,17 +26,17 @@ ExampleProjectAudioProcessor::ExampleProjectAudioProcessor()
 {
 }
 
-ExampleProjectAudioProcessor::~ExampleProjectAudioProcessor()
+FasterMasterAudioProcessor::~FasterMasterAudioProcessor()
 {
 }
 
 //==============================================================================
-const juce::String ExampleProjectAudioProcessor::getName() const
+const juce::String FasterMasterAudioProcessor::getName() const
 {
     return JucePlugin_Name;
 }
 
-bool ExampleProjectAudioProcessor::acceptsMidi() const
+bool FasterMasterAudioProcessor::acceptsMidi() const
 {
    #if JucePlugin_WantsMidiInput
     return true;
@@ -44,7 +45,7 @@ bool ExampleProjectAudioProcessor::acceptsMidi() const
    #endif
 }
 
-bool ExampleProjectAudioProcessor::producesMidi() const
+bool FasterMasterAudioProcessor::producesMidi() const
 {
    #if JucePlugin_ProducesMidiOutput
     return true;
@@ -53,7 +54,7 @@ bool ExampleProjectAudioProcessor::producesMidi() const
    #endif
 }
 
-bool ExampleProjectAudioProcessor::isMidiEffect() const
+bool FasterMasterAudioProcessor::isMidiEffect() const
 {
    #if JucePlugin_IsMidiEffect
     return true;
@@ -62,50 +63,50 @@ bool ExampleProjectAudioProcessor::isMidiEffect() const
    #endif
 }
 
-double ExampleProjectAudioProcessor::getTailLengthSeconds() const
+double FasterMasterAudioProcessor::getTailLengthSeconds() const
 {
     return 0.0;
 }
 
-int ExampleProjectAudioProcessor::getNumPrograms()
+int FasterMasterAudioProcessor::getNumPrograms()
 {
     return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
                 // so this should be at least 1, even if you're not really implementing programs.
 }
 
-int ExampleProjectAudioProcessor::getCurrentProgram()
+int FasterMasterAudioProcessor::getCurrentProgram()
 {
     return 0;
 }
 
-void ExampleProjectAudioProcessor::setCurrentProgram (int index)
+void FasterMasterAudioProcessor::setCurrentProgram (int index)
 {
 }
 
-const juce::String ExampleProjectAudioProcessor::getProgramName (int index)
+const juce::String FasterMasterAudioProcessor::getProgramName (int index)
 {
     return {};
 }
 
-void ExampleProjectAudioProcessor::changeProgramName (int index, const juce::String& newName)
+void FasterMasterAudioProcessor::changeProgramName (int index, const juce::String& newName)
 {
 }
 
 //==============================================================================
-void ExampleProjectAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+void FasterMasterAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
 }
 
-void ExampleProjectAudioProcessor::releaseResources()
+void FasterMasterAudioProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
-bool ExampleProjectAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
+bool FasterMasterAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
   #if JucePlugin_IsMidiEffect
     juce::ignoreUnused (layouts);
@@ -128,7 +129,7 @@ bool ExampleProjectAudioProcessor::isBusesLayoutSupported (const BusesLayout& la
 }
 #endif
 
-void ExampleProjectAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+void FasterMasterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels  = getTotalNumInputChannels();
@@ -158,25 +159,25 @@ void ExampleProjectAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
 }
 
 //==============================================================================
-bool ExampleProjectAudioProcessor::hasEditor() const
+bool FasterMasterAudioProcessor::hasEditor() const
 {
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-juce::AudioProcessorEditor* ExampleProjectAudioProcessor::createEditor()
+juce::AudioProcessorEditor* FasterMasterAudioProcessor::createEditor()
 {
-    return new ExampleProjectAudioProcessorEditor (*this);
+    return new FasterMasterAudioProcessorEditor (*this);
 }
 
 //==============================================================================
-void ExampleProjectAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
+void FasterMasterAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
 }
 
-void ExampleProjectAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
+void FasterMasterAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
@@ -186,5 +187,5 @@ void ExampleProjectAudioProcessor::setStateInformation (const void* data, int si
 // This creates new instances of the plugin..
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
-    return new ExampleProjectAudioProcessor();
+    return new FasterMasterAudioProcessor();
 }

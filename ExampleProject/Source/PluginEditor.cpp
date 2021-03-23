@@ -8,38 +8,39 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "RMSComp.h"
 
 //==============================================================================
-ExampleProjectAudioProcessorEditor::ExampleProjectAudioProcessorEditor (ExampleProjectAudioProcessor& p)
+FasterMasterAudioProcessorEditor::FasterMasterAudioProcessorEditor (FasterMasterAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 300);
     
-    gainSlider.addListener(this); // listen to user interaction with this GUI window
-    gainSlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag); // Circular knob
-    gainSlider.setBounds(40,90,120,120); // position on GUI
-    gainSlider.setRange(1.f,10.f,.01f);
-    //gainSlider.setSkewFactorFromMidPoint(1.f);
-    gainSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 60, 30);
-    gainSlider.setValue(audioProcessor.gain);
-    addAndMakeVisible(gainSlider);
+    mixSlider.addListener(this); // listen to user interaction with this GUI window
+    mixSlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag); // Circular knob
+    mixSlider.setBounds(100,90,200,200); // position on GUI
+    mixSlider.setRange(0.f,100.f,1.f);
+    //mixSlider.setSkewFactorFromMidPoint(1.f);
+    mixSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 60, 30);
+    mixSlider.setValue(audioProcessor.gain);
+    addAndMakeVisible(mixSlider);
     
     muteButton.addListener(this);
-    muteButton.setBounds(200,90,120,20);
+    muteButton.setBounds(300,20,120,20);
     muteButton.setButtonText("Bypass");
     muteButton.setToggleState(audioProcessor.muteOn, juce::dontSendNotification);
     addAndMakeVisible(muteButton);
     
 }
 
-ExampleProjectAudioProcessorEditor::~ExampleProjectAudioProcessorEditor()
+FasterMasterAudioProcessorEditor::~FasterMasterAudioProcessorEditor()
 {
 }
 
 //==============================================================================
-void ExampleProjectAudioProcessorEditor::paint (juce::Graphics& g)
+void FasterMasterAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
@@ -47,27 +48,27 @@ void ExampleProjectAudioProcessorEditor::paint (juce::Graphics& g)
     g.setColour (juce::Colours::red);
     g.setFont (15.0f);
     //g.drawFittedText ("My Distortion Plug-in", getLocalBounds(), juce::Justification::centred, 1);
-    g.drawFittedText ("Faster Master by DFITZ",20,40, 150,100,juce::Justification::centred,1 );
+    g.drawFittedText ("FASTER MASTER by DFITZ",125,30, 150,100,juce::Justification::centred,1 );
   
 }
 
-void ExampleProjectAudioProcessorEditor::resized()
+void FasterMasterAudioProcessorEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
 }
 
 
-void ExampleProjectAudioProcessorEditor::sliderValueChanged(juce::Slider *slider){
+void FasterMasterAudioProcessorEditor::sliderValueChanged(juce::Slider *slider){
     
-    if (slider == &gainSlider){
-        audioProcessor.gain = gainSlider.getValue();
+    if (slider == &mixSlider){
+        audioProcessor.gain = mixSlider.getValue();
     }
     
     
 }
 
-void ExampleProjectAudioProcessorEditor::buttonClicked(juce::Button * button){
+void FasterMasterAudioProcessorEditor::buttonClicked(juce::Button * button){
     
     if (button == &muteButton){
         audioProcessor.muteOn = !audioProcessor.muteOn;
