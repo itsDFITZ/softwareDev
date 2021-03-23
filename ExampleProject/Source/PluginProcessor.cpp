@@ -10,6 +10,8 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 #include "RMSComp.h"
+#include "Normalize.h"
+#include "SoftClip.h"
 
 //==============================================================================
 FasterMasterAudioProcessor::FasterMasterAudioProcessor()
