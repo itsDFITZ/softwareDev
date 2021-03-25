@@ -9,10 +9,12 @@
 #ifndef Normalize_h
 #define Normalize_h
 
-class Normalize{
-public:
-    void norm();
-};
-
-
+//class Normalize{
+//public:
+//    Normalize();
+//    void norm(float * signal, const int numSamples, const int c);
+//
+//};
+//
+//
 #endif /* Normalize_h */

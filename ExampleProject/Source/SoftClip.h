@@ -9,10 +9,14 @@
 #ifndef SoftClip_h
 #define SoftClip_h
 
-class SoftClip{
-public:
-    void clip();
-};
+//class SoftClip{
+//public:
+//    SoftClip();
+//    void clip(float * signal, const int numSamples, const int c);
+//private:
+//    int thresh;
+//    float x;
+//};
 
 
 #endif /* SoftClip_h */

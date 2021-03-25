@@ -11,7 +11,16 @@
 
 using namespace std;
 
-void Normalize::norm() {
-    
-}
-
+//void Normalize::norm(float * signal, const int numSamples, const int c) {
+//      for (int n = 0; n < numSamples; n++){
+//            float x = *signal; // get value at memory location
+//
+////            x =
+////           gainScale = (max(inL)-1);
+////          inL = inL *(1/(1+gainScale));
+//            *signal = x;
+//            signal++;
+//        }
+//
+//}
+//
