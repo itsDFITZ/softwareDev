@@ -10,7 +10,11 @@
 #include <stdio.h>
 
 using namespace std;
-
+SoftClip::SoftClip(){};
+void SoftClip::softClip(float * signal, const int numSamples, const int c){};
+float SoftClip::processSample(float x, int c){
+    return 1;
+};
 
 void SoftClip::processSignal(float * signal, const int numSamples, const int c) {
     
