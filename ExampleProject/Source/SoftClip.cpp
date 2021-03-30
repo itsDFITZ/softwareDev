@@ -12,19 +12,19 @@
 using namespace std;
 
 
-//void SoftClip::clip(float * signal, const int numSamples, const int c) {
-//    
-//    thresh = 1;
-//    
-//    for (int n = 0; n < numSamples; n++){
-//        float x = signal[n];
-//       
-//
-//      
-//       if (x > thresh)
-//           signal[n] = thresh;
-//       if (x < -thresh)
-//           signal[n] = -thresh;
-//        
-//    }
-//}
+void SoftClip::processSignal(float * signal, const int numSamples, const int c) {
+    
+    thresh = 1;
+    
+    for (int n = 0; n < numSamples; n++){
+        float x = signal[n];
+       
+
+      
+       if (x > thresh)
+           signal[n] = thresh;
+       if (x < -thresh)
+           signal[n] = -thresh;
+        
+    }
+}

@@ -9,6 +9,8 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "SoftClip.h"
+
 
 //==============================================================================
 /**
@@ -17,12 +19,15 @@ class FasterMasterAudioProcessor  : public juce::AudioProcessor
 {
 public:
     //==============================================================================
-    FasterMasterAudioProcessor();
+  FasterMasterAudioProcessor();
+//    juce::AudioProcessorEditor::juce::AudioProcessorEditor(){}
     ~FasterMasterAudioProcessor() override;
-
+//    FasterMasterAudioProcessor(double l = 0, double w = 0);
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
+//    void processSignal(float * signal, const int numSamples, const int c);
+    
 
    #ifndef JucePlugin_PreferredChannelConfigurations
     bool isBusesLayoutSupported (const BusesLayout& layouts) const override;
@@ -56,7 +61,10 @@ public:
     float gain = 1.f;
     bool  muteOn = false;
     
+    
 private:
+    SoftClip softClip;
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FasterMasterAudioProcessor)
 };

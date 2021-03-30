@@ -6,7 +6,7 @@
   ==============================================================================
 */
 
-
+#include <JuceHeader.h>
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 #include "RMSComp.h"
@@ -147,6 +147,7 @@ void FasterMasterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
         buffer.clear (i, 0, buffer.getNumSamples());
     
     
+   
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
@@ -156,7 +157,13 @@ void FasterMasterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     // interleaved by keeping the same state.
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
-        auto* channelData = buffer.getWritePointer (channel);
+        for (int n = 0;n<buffer.getNumSamples();++n){
+            float x = buffer.getReadPointer(channel)[n];
+            x = softClip.processSample(x,channel);
+            buffer.getWritePointer(channel)[n]=x;
+            
+        }
+//        auto* channelData = buffer.getWritePointer (channel);
 
         // ..do something to the data...
     }
