@@ -12,7 +12,7 @@
 class SoftClip{
 public:
     SoftClip();
-//    void clip(float * signal, const int numSamples, const int c);
+    void softClip(float * signal, const int numSamples, const int c);
     void processSignal(float * signal, const int numSamples, const int c);
     
    float processSample(float x, int c);

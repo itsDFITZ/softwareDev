@@ -61,9 +61,11 @@ public:
     float gain = 1.f;
     bool  muteOn = false;
     
+//    SoftClip softClip;
+    
     
 private:
-    SoftClip softClip;
+   SoftClip softClip;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FasterMasterAudioProcessor)

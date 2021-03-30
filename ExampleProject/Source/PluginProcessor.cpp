@@ -163,7 +163,7 @@ void FasterMasterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
             buffer.getWritePointer(channel)[n]=x;
             
         }
-//        auto* channelData = buffer.getWritePointer (channel);
+//       auto* channelData = buffer.getWritePointer (channel);
 
         // ..do something to the data...
     }
