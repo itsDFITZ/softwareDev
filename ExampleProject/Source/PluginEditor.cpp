@@ -47,9 +47,9 @@ void FasterMasterAudioProcessorEditor::paint (juce::Graphics& g)
     g.fillAll (juce::Colour(juce::Colours::lightgrey));
 
     g.setColour (juce::Colours::red);
-    g.setFont (15.0f);
+    g.setFont (20.0f);
     //g.drawFittedText ("My Distortion Plug-in", getLocalBounds(), juce::Justification::centred, 1);
-    g.drawFittedText ("FASTER MASTER by DFITZ",125,30, 150,100,juce::Justification::centred,1 );
+    g.drawFittedText ("FASTER MASTER by DFITZ",125,30, 150,65,juce::Justification::centred,1 );
   
 }
 
