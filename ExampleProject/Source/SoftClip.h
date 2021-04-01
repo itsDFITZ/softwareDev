@@ -8,14 +8,17 @@
 
 #ifndef SoftClip_h
 #define SoftClip_h
+#include "PluginProcessor.h"
 
 class SoftClip{
 public:
-    SoftClip();
+    SoftClip(){};
     void softClip(float * signal, const int numSamples, const int c);
     void processSignal(float * signal, const int numSamples, const int c);
     
-   float processSample(float x, int c);
+    float processSample(float x, int c){
+        return 1.f;
+    };
     
 //    void prepare(float newFs);
 private:
