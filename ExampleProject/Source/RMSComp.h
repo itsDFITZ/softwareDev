@@ -32,6 +32,10 @@ private:
     float x_db;
     float gainChange_dB;
     float gainSC;
+    float gainSmoothPrev;
+    float gainSmooth;
+    float alphaA;
+    float alphaR;
 };
 
 
