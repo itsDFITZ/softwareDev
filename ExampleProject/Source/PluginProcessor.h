@@ -69,6 +69,7 @@ public:
 private:
    SoftClip softClip;
     RMSComp rmsComp;
+//    float mix;
    
    
     

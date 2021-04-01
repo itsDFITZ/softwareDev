@@ -160,10 +160,11 @@ void FasterMasterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
 //            Compress
             x = rmsComp.processSample(x,channel);
             
+//
 //            Clip
             x = softClip.processSample(x,channel);
             
-            
+//
             buffer.getWritePointer(channel)[n]=x;
             
         }

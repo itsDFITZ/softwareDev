@@ -55,6 +55,7 @@ void RMSComp::processSignal(float * signal, const int numSamples, const int c) {
             
             gainSmoothPrev = gainSmooth;
      
-    
+        x[n] = mix * x[n] + (1-mix) * signal[n];
+        
     }
 }

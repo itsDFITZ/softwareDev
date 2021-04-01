@@ -37,6 +37,7 @@ private:
     float alphaA;
     float alphaR;
     float lin_A;
+    float mix;
 };
 
 
