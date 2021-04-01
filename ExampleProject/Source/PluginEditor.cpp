@@ -43,7 +43,8 @@ FasterMasterAudioProcessorEditor::~FasterMasterAudioProcessorEditor()
 void FasterMasterAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
+//    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
+    g.fillAll (juce::Colour(juce::Colours::lightgrey));
 
     g.setColour (juce::Colours::red);
     g.setFont (15.0f);
