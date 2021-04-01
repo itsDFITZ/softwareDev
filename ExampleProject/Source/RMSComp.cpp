@@ -20,7 +20,7 @@ float RMSComp::processSample(float x, int c){
 
 void RMSComp::processSignal(float * signal, const int numSamples, const int c) {
     
-    newThreshold = -6.f;
+    newThreshold = -6.f; // I aim to make this variable based on RMS of input with a potential lookahead feature
     setAttack = 3.f;
     setRelease = 3.f;
     setRatio = 20.f;
@@ -49,7 +49,7 @@ void RMSComp::processSignal(float * signal, const int numSamples, const int c) {
                 gainSmooth = -sqrt(((1-alphaR)*gainChange_dB^2)+(alphaR*gainSmoothPrev^2));
            
             
-            lin_A(n,1) = 10^(gainChange_dB/20); %convert to lin amp
+            lin_A(n,1) = 10^(gainChange_dB/20); 
             
             y(n,1) = lin_A(n,1) * x(n,1);
             
