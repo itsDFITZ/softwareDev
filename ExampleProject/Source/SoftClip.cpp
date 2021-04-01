@@ -19,7 +19,7 @@ float SoftClip::processSample(float x, int c){
 
 void SoftClip::processSignal(float * signal, const int numSamples, const int c) {
     
-    thresh = 1;
+    thresh = 1.f;
     
     for (int n = 0; n < numSamples; n++){
         float x = signal[n];
@@ -27,9 +27,10 @@ void SoftClip::processSignal(float * signal, const int numSamples, const int c) 
 
       
        if (x > thresh)
-           signal[n] = thresh;
+           x[n] = thresh;
        if (x < -thresh)
-           signal[n] = -thresh;
+           x[n] = -thresh;
+       else x[n] = x[n];
         
     }
 }

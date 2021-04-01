@@ -36,6 +36,7 @@ private:
     float gainSmooth;
     float alphaA;
     float alphaR;
+    float lin_A;
 };
 
 

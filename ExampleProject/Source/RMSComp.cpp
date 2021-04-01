@@ -49,9 +49,9 @@ void RMSComp::processSignal(float * signal, const int numSamples, const int c) {
                 gainSmooth = -sqrt(((1-alphaR)*gainChange_dB^2)+(alphaR*gainSmoothPrev^2));
            
             
-            lin_A(n,1) = 10^(gainChange_dB/20); 
+            lin_A[n] = 10^(gainChange_dB/20);
             
-            y(n,1) = lin_A(n,1) * x(n,1);
+            x[n] = lin_A[n] * x[n];
             
             gainSmoothPrev = gainSmooth;
      

@@ -162,6 +162,8 @@ void FasterMasterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
             
 //            Clip
             x = softClip.processSample(x,channel);
+            
+            
             buffer.getWritePointer(channel)[n]=x;
             
         }
