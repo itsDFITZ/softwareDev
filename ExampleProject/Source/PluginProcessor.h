@@ -10,6 +10,8 @@
 
 #include <JuceHeader.h>
 #include "SoftClip.h"
+#include "RMSComp.h"
+
 
 
 //==============================================================================
@@ -66,6 +68,7 @@ public:
     
 private:
    SoftClip softClip;
+    RMSComp rmsComp;
    
    
     

@@ -9,10 +9,30 @@
 #ifndef RMSComp_h
 #define RMSComp_h
 
-void norm();
+class RMSComp{
+public:
+    RMSComp(){};
+    void rmsComp(float * signal, const int numSamples, const int c);
+    void processSignal(float * signal, const int numSamples, const int c);
+        float processSample(float x, int c){
+        return 1.f;
+    };
+    void setThreshold(float newThreshold);
+    void setRatio(float newRatio);
+    void setAttack (float newAttack);
+    void setRelease (float newRelease);
+    
+//    void prepare(float newFs);
+private:
+ 
+    
+//    int thresh;
+//    float ratio;
+  float x;
+    float x_db;
+    float gainChange_dB;
+    float gainSC;
+};
 
-void comp();
-
-void clip();
 
 #endif /* RMSComp_h */
